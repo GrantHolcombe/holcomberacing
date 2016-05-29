@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="holcomberacing" lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:image" content="http://www.holcomberacing.com/img/number1.jpg">
+        <meta charset="utf-8">
+        <title>Holcombe Racing</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/angular-chart.css">
+
+    </head>
+    <body ng-cloak>
+    <div ng-controller="tracktimes">
+
+      <div class="container">
+        <div class="row">
+
+          <md-sidenav md-is-open="sidenavState" md-component-id="nav" class="md-sidenav-left">
+            <h1 class="navTitle text-center">Holcombe Racing</h1>
+            <p>Indoor Karting<p>
+            <ul class="navItems">
+              <li ng-repeat="item in navItems"><button ng-disabled="$last" class="btn btn-md tracks" ng-click="navItemSelected(item);">{{item}}</button></li>
+            </ul>
+          </md-sidenav>
+
+
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+            <img class="img img-responsive logo" src="img/logo.png" alt="logo"/>
+            <h3 class="trackName text-center">
+              {{trackName}}
+            </h3>
+
+          </div>
+          <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <canvas id="line" class="chart chart-line" chart-data="data"
+              chart-labels="labels" chart-options="options" scaleShowLabels="false" chart-legend="false" chart-series="series">
+            </canvas>
+          </div>
+        </div>
+      </div>
+      <button ng-click="navToggle();" ng-class="{'navToggleOpen': sidenavState}" class="navToggle btn btn-lg"><i class="fa fa-lg fa-flag-checkered" aria-hidden="true"></i></button>
+    </div>
+
+      <!-- Angular.js Libraries -->
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+      <!-- Angular Material Library -->
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+      <!-- Chart.js Library -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+      <!-- Chart.js Angular Directives -->
+      <script src="js/vendor/angular-chart.js"></script>
+
+      <!-- In House Javascript -->
+      <script src="js/app/httpServices.js"></script>
+      <script src="js/app/app.js"></script>
+    </body>
+</html>
