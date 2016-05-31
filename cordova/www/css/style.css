@@ -1,0 +1,67 @@
+body {
+  background: #6699ff; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#6699ff, #000000); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#6699ff, #000000); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#6699ff, #000000); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#6699ff, #000000); /* Standard syntax */
+  font-family: 'Noto Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+}
+
+p, button {
+  color: #666;
+  font-weight: bold;
+}
+
+.logo {
+    margin: 0 auto;
+    padding: 8px;
+    height: 150px;
+}
+
+.navToggle {
+  border-radius: 0 8px 8px 0;
+  position: fixed;
+  top: 60px;
+  margin-left: 0;
+  transition: 0.2s ease-in all;
+}
+
+.navTitle {
+    padding: 10px 0 10px 0;
+    margin: 0 0 20px 0;
+    background-color: #999999;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 1px 5px 0px rgba(50, 50, 50, 0.75);
+}
+md-sidenav {
+  background-color:  #bfbfbf;
+}
+
+md-sidenav p {
+  padding: 0 0 0 15px;
+  margin: 0;
+}
+
+ul {
+    margin: 0;
+}
+
+li {
+  margin: 0 0 0 -40px;
+}
+
+li button {
+    width: 100%;
+    border-radius: 0 !important;
+    border-top: solid 1px #999999 !important;
+}
+
+.navToggleOpen {
+  transition: 0.2s ease-in all;
+  margin-left: 320px;
+}
