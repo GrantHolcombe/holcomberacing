@@ -21,7 +21,7 @@
 
           <md-sidenav md-is-open="sidenavState" md-component-id="nav" class="md-sidenav-left">
             <h1 class="navTitle text-center">Holcombe Racing</h1>
-            <p>Indoor Karting<p>
+            <p>Indoor Karting {{ width }}<p>
             <ul class="navItems">
               <li ng-repeat="item in navItems"><button ng-disabled="$last" class="btn btn-md tracks" ng-click="navItemSelected(item);">{{item}}</button></li>
             </ul>
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <button ng-click="navToggle();" ng-class="{'navToggleOpen': sidenavState}" class="navToggle btn btn-lg"><i class="fa fa-lg fa-flag-checkered" aria-hidden="true"></i></button>
+      <button ng-click="navToggle();" ng-class="{'navToggleOpen': sidenavState}" class="navToggle btn-default btn btn-lg"><i class="fa fa-lg fa-flag-checkered" aria-hidden="true"></i></button>
     </div>
 
       <!-- Angular.js Libraries -->

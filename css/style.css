@@ -19,7 +19,7 @@ p, button {
 .logo {
     margin: 0 auto;
     padding: 8px;
-    height: 150px;
+    height: 100px;
 }
 
 .navToggle {
@@ -63,5 +63,14 @@ li button {
 
 .navToggleOpen {
   transition: 0.2s ease-in all;
-  margin-left: 320px;
+  margin-left: 304px;
+}
+
+.chart-container {
+  height: 300px;
+}
+
+md-sidenav {
+  min-width: 304px;
+  max-width: 304px;
 }

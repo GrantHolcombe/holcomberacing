@@ -9,6 +9,7 @@ angular.module("holcomberacing", ['ngMaterial', 'chart.js', 'httpServices'])
       "East Lake (coming soon)"
     ]
 
+
     $scope.navToggle = function() {
       $scope.sidenavState = !$scope.sidenavState
     }
@@ -23,7 +24,11 @@ angular.module("holcomberacing", ['ngMaterial', 'chart.js', 'httpServices'])
           var laps = [];
           var avgArr = [];
 
-          $scope.data = [];
+          delete $scope.labels;
+          delete $scope.series;
+          delete $scope.data;
+          delete $scope.options;
+
         	for(var i = 0; i < response.heats.length; i++){
             var split = response.heats[i].date_time_local.split(" ");
 
