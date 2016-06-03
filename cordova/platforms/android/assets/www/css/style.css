@@ -7,6 +7,10 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
@@ -27,7 +31,8 @@ p, button {
   position: fixed;
   top: 60px;
   margin-left: 0;
-  transition: 0.2s ease-in all;
+  transition: margin-left, 0.2s, all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: margin-left, 0.2s, all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .navTitle {
@@ -62,8 +67,9 @@ li button {
 }
 
 .navToggleOpen {
-  transition: 0.2s ease-in all;
-  margin-left: 304px;
+  transition: margin-left, 0.2s, all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-transition: margin-left, 0.2s, all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin-left: 250px;
 }
 
 .chart-container {
@@ -71,6 +77,6 @@ li button {
 }
 
 md-sidenav {
-  min-width: 304px;
-  max-width: 304px;
+  min-width: 250px;
+  max-width: 250px;
 }
