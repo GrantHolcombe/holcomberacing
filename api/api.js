@@ -7,31 +7,6 @@ var api = express();
 // set port
 var port = process.env.PORT || 8080;
 
-// scrape function
-api.get('/scrape', function(req, res){
-  // set url for scrape
-  url = "http://" + "mscmiramar" + '.clubspeedtiming.com/sp_center/RacerHistory.aspx?CustID=' + "1170635";
-
-  // scrape the url
-  request(url, function(err, res, html){
-    if(!err){
-      var $ = cheerio.load(html);
-      var json = {
-        dates: []
-      }
-
-      $('#Table1 table .Normal td:nth-child(2)').each(function(){
-        var date = $(this).text().replace(' ', '');
-        json.dates.push(date);
-      });
-
-
-      console.log(json);
-    } else {
-      console.log();
-    }
-  });
-});
 
 // url route setup
 var router = express.Router();
@@ -45,13 +20,40 @@ router.get('/', function(req, res) {
 router.route('/fetch-times/:t/:r')
   .get(function(req, res) {
       var trackName = req.params.t;
-      var racerId = req.params.r;
+      var racerId = parseInt(req.params.r);
+      var json = {
+        times: [],
+        dates: []
+      };
 
-      res.json({
-        trackName: "mscmiramar",
-        racerId: "1170635"
+      // set url for scrape
+      var url = "http://" + trackName + '.clubspeedtiming.com/sp_center/RacerHistory.aspx?CustID=' + racerId;
+
+      // scrape the url
+      var test = request(url, function(err, resp, html){
+        if(!err){
+          var $ = cheerio.load(html);
+
+
+          $('#Table1 table .Normal td:nth-child(4)').each(function(){
+            var time = $(this).text();
+            json.times.push(time);
+          });
+
+          $('#Table1 table .Normal td:nth-child(2)').each(function(){
+            var date = $(this).text().trim();
+            json.dates.push(date);
+          });
+
+        } else {
+          console.log(err);
+        }
+        
+        res.json(json);
       });
+
   });
+
 
 api.use('/api', router);
 
