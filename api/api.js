@@ -5,7 +5,7 @@ var express = require('express');
 var api = express();
 
 // set port
-var port = process.env.PORT || 8080;
+var port = 80;
 
 
 // url route setup
@@ -48,7 +48,7 @@ router.route('/fetch-times/:t/:r')
         } else {
           console.log(err);
         }
-        
+
         res.json(json);
       });
 
