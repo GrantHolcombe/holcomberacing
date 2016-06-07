@@ -5,7 +5,7 @@ var express = require('express');
 var api = express();
 
 // set port
-var port = 80;
+var port = process.env.PORT || 8080;
 
 
 // url route setup
