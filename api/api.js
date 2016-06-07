@@ -5,11 +5,21 @@ var express = require('express');
 var api = express();
 
 // set port
-var port = 80;
+var port = 8080;
 
 
 // url route setup
 var router = express.Router();
+
+// Add headers
+api.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Pass to next layer of middleware
+    next();
+});
 
 router.get('/', function(req, res) {
   res.json({
