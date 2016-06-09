@@ -52,6 +52,23 @@ md-sidenav p {
   margin: 0;
 }
 
+.trackName {
+  color: #6699ff;
+}
+
+.pr {
+  color: #6699ff;
+  margin-left: auto;
+}
+
+.newPr {
+  color: #FFD700;
+}
+
+md-card {
+    background: rgba(0, 0, 0, 0.2);
+}
+
 ul {
     margin: 0;
 }

@@ -19,34 +19,37 @@ angular.module("holcomberacing", ['ngMaterial', 'chart.js', 'httpServices'])
 
       api.kart(item)
         .then(function(response){
-          response = response.data;
-          var dates = [];
-          var laps = [];
+          var response = response.data;
+          // set times and dates from response
+          var dates = response.dates.reverse();
+          var laps = response.times.reverse();
+          // get lap avg from laps arr
+        	var avg = laps.reduce(function(p,c,i){return p+(c-p)/(i+1)},0).toFixed(3);
+          // setup an arr to make an Average line on graphs
           var avgArr = [];
 
+          // clear chart items fro redraw
           delete $scope.labels;
           delete $scope.series;
           delete $scope.data;
           delete $scope.options;
 
-        	for(var i = 0; i < response.heats.length; i++){
-            var split = response.heats[i].date_time_local.split(" ");
+          // push avg into avgArr
+        	for(var i = 0; i < laps.length; i++){
+            avgArr.push(avg);
+          }
 
-        		dates.unshift(split[0]);
-            laps.unshift(response.heats[i].best_time); // server response
-        	}
-        	var avg = laps.reduce(function(p,c,i){return p+(c-p)/(i+1)},0).toFixed(3);
-
-        	for(var i = 0; i < response.heats.length; i++) {
-        		avgArr.push(avg);
-        	}
-
+          $scope.pr = Math.min.apply(null, laps).toFixed(3);
           $scope.labels = dates;
           $scope.series = ['Lap Time', 'Track Average'];
           $scope.data = [laps, avgArr];
           $scope.options = {
-              maintainAspectRatio: false
+              maintainAspectRatio: false,
+              scaleFontColor: "#ffffff"
           }
+
+          $scope.newPr = (parseFloat(laps[laps.length - 1]) === $scope.pr);
+
 
         },
         function(response){
