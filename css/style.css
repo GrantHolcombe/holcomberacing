@@ -5,7 +5,9 @@ body {
   background: -moz-linear-gradient(#6699ff, #000000); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#6699ff, #000000); /* Standard syntax */
   font-family: 'Noto Sans', sans-serif;
+  font-size: 100%;
 }
+
 
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
@@ -47,17 +49,32 @@ md-sidenav {
   background-color:  #bfbfbf;
 }
 
+@media only screen and (min-width: 750px) {
+  .trackName {
+    font-size: 38.75px !important;
+  }
+  .pr {
+    font-size: 38.75px !important;
+  }
+}
+
+
 md-sidenav p {
   padding: 0 0 0 15px;
   margin: 0;
 }
 
 .trackName {
-  color: #6699ff;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 36px;
+  font-size: 5vw;
 }
 
 .pr {
-  color: #6699ff;
+  color: #ffffff;
+  font-size: 36px;
+  font-size: 5vw;
   margin-left: auto;
 }
 
